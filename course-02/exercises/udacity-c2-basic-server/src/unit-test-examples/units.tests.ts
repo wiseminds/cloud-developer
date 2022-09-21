@@ -1,4 +1,4 @@
-import { add, divide } from './units';
+import { add, divide, concat } from './units';
 
 import { expect } from 'chai';
 import 'mocha';
@@ -31,6 +31,28 @@ describe('divide', () => {
 
   it('should throw an error if div by zero', () => {
     expect(()=>{ divide(5,0) }).to.throw('div by 0')
+  });
+
+});
+
+
+describe('concast', () => {
+
+  it('should combile "John" and "Doe" to form "JohnDoe"', () => {
+    const result = concat("John", "Doe");
+    expect(result).to.equal("JohnDoe");
+  });
+
+  it('should throw error if first argument is empty', () => {
+    expect(()=>{ concat("", "Doe") }).to.throw('Inputs must not be empty')
+  });
+
+  it('should throw error if first argument is empty', () => {
+    expect(()=>{ concat("", "Doe") }).to.throw('Inputs must not be empty')
+  });
+
+  it('should throw error if second argument is empty', () => {
+    expect(()=>{ concat("John", "") }).to.throw('Inputs must not be empty')
   });
 
 });
