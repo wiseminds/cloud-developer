@@ -17,7 +17,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
         url: inputURL,
         responseType: "arraybuffer"
       });
-      // .then(function ({data: imageBuffer}) {
+      
       const photo = await Jimp.read(imageBuffer.data);
       const outpath =
         "/tmp/filtered." + Math.floor(Math.random() * 2000) + ".jpg";
@@ -29,6 +29,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
           resolve(__dirname + outpath);
         });
     } catch (error) {
+      console.log("error converting image", error)
       reject(error);
     }
   });

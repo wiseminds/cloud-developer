@@ -32,17 +32,30 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util";
   //! END @TODO1
 
   app.get("/filteredimage", async (req, res) => {
-    const imageUrl = req.query["image_url"];
+    const imageUrl: string = req.query["image_url"];
 
-    console.log(imageUrl);
+    // console.log(imageUrl);
 
     if (!imageUrl || !Validator.isURL(imageUrl)) {
       return res.status(422).send("Please send a valid image link");
     }
 
-    const result = await filterImageFromURL(imageUrl);
+    filterImageFromURL(imageUrl)
+      .then((file) => {
+        // delete temp file when the file is sent to the user successfully
+        req.on("end", () => {
+          deleteLocalFiles([file]);
+        });
 
-    res.status(200).sendFile(result);
+        res.status(200).sendFile(file);
+      })
+      .catch((err) => {
+        res
+          .status(400)
+          .send(
+            "An Error occurred, could not filter image. \nPlease make sure you passed a valid image link"
+          );
+      });
   });
 
   // Root Endpoint
