@@ -1,16 +1,16 @@
 export const config = {
   "dev": {
-    "username": "",
-    "password": "",
-    "database": "",
-    "host": "",
+    "username": "postgres",
+    "password": "udacity-course-2022",
+    "database": "udacity-course",
+    "host": "udacity-course.cd5hwzo47qt8.us-east-1.rds.amazonaws.com",
     "dialect": "postgres",
     "aws_region": "us-east-2",
     "aws_profile": "default",
     "aws_media_bucket": "udagram-ruttner-dev"
   },
   "jwt": {
-    "secret": " "
+    "secret": "vhxgfchgvjhgcgxfgchgfxdfgch "
   },
   "prod": {
     "username": "",
