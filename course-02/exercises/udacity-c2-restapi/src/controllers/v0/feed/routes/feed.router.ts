@@ -32,7 +32,22 @@ router.get("/:id", requireAuth, async (req: Request, res: Response) => {
 // update a specific resource
 router.patch("/:id", requireAuth, async (req: Request, res: Response) => {
   //@TODO try it yourself
-  res.status(500).send("not implemented");
+  const { id } = req.params;
+  const body = req.body
+
+
+
+  if (!id) {
+    res.status(422).json({ message: "Please pass in a valid ID" });
+  }
+
+  const data = await await FeedItem.findByPk(id);
+
+  if(body.url) data.url = body.url
+  if(body.caption) data.caption = body.caption
+
+  await data.save()
+  res.status(200).send(data);
 });
 
 // Get a signed url to put a new item in the bucket
@@ -65,12 +80,12 @@ router.post("/", requireAuth, async (req: Request, res: Response) => {
     return res.status(400).send({ message: "File url is required" });
   }
 
-  const item = await new FeedItem({
+  const saved_item = await   FeedItem.create({
     caption: caption,
-    url: fileName,
+    url: fileName, 
   });
 
-  const saved_item = await item.save();
+//   const saved_item = await item.save();
 
   saved_item.url = AWS.getGetSignedUrl(saved_item.url);
   res.status(201).send(saved_item);
