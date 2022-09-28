@@ -15,7 +15,7 @@ async function generatePassword(plainTextPassword: string): Promise<string> {
     const rounds = 10;
     const salt = await  bcrypt.genSalt(rounds)
 
-    const hashed = bcrypt.hash(plainTextPassword, salt)
+    const hash = bcrypt.hash(plainTextPassword, salt)
 
     return hash
 }
