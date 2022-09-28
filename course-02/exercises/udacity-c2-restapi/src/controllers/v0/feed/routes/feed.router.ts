@@ -18,7 +18,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 //@TODO
 //Add an endpoint to GET a specific resource by Primary Key
-router.get("/:id", requireAuth, async (req: Request, res: Response) => {
+router.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
 
   if (!id) {
@@ -31,7 +31,7 @@ router.get("/:id", requireAuth, async (req: Request, res: Response) => {
 
 // update a specific resource
 router.patch("/:id", requireAuth, async (req: Request, res: Response) => {
-  //@TODO try it yourself
+  
   const { id } = req.params;
   const body = req.body
 
