@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "90c44738-86d0-440c-ac60-dcb7b70fb9e8",
+		"_postman_id": "de59e068-a8b1-4fdb-995c-fb39a6593937",
 		"name": "udacity-c2-restapi",
 		"description": "Requests that should work!",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7619874"
 	},
 	"item": [
 		{
@@ -15,7 +16,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ad01629-c164-41ef-9d19-0a5fd13274af",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -37,10 +37,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{host}}/api/v0/feed",
 							"host": [
@@ -62,7 +58,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ad01629-c164-41ef-9d19-0a5fd13274af",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -84,12 +79,8 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{host}}/api/v0/feed/:id",
+							"raw": "{{host}}/api/v0/feed/4",
 							"host": [
 								"{{host}}"
 							],
@@ -97,19 +88,13 @@
 								"api",
 								"v0",
 								"feed",
-								":id"
+								"4"
 							],
 							"query": [
 								{
 									"key": "id",
 									"value": "4",
 									"disabled": true
-								}
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "3"
 								}
 							]
 						},
@@ -121,10 +106,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
 								"url": {
 									"raw": "{{host}}/api/v0/feed/:id",
 									"host": [
@@ -191,7 +172,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4fa0ec55-4fb1-4eda-a7a3-08af62324ede",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -222,7 +202,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\":\"hello@gmail.com\",\n\t\"password\":\"fancypass\"\n}"
+							"raw": "{\n\t\"email\":\"hello1@gmail.com\",\n\t\"password\":\"fancypass\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/v0/users/auth",
@@ -245,7 +225,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b3737edc-f79e-4823-b2c5-e84e6359e173",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -300,7 +279,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5524b249-cd4d-4e75-91c4-b2f690d53d44",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -335,7 +313,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\":\"hello@gmail.com\",\n\t\"password\":\"fancypass\"\n}"
+							"raw": "{\n\t\"email\":\"hello1@gmail.com\",\n\t\"password\":\"fancypass\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/v0/users/auth/login",
@@ -359,7 +337,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "41cd51df-9472-4d8d-9177-b4f54d6a8530",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -420,7 +397,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ad01629-c164-41ef-9d19-0a5fd13274af",
 								"exec": [
 									"pm.test(\"Status code is 401\", function () {",
 									"    pm.response.to.have.status(401);",
@@ -467,7 +443,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ad01629-c164-41ef-9d19-0a5fd13274af",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
@@ -521,7 +496,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1ad01629-c164-41ef-9d19-0a5fd13274af",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {",
 									"    pm.response.to.have.status(201);",
@@ -552,7 +526,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"caption\": \"Hello\",\n    \"url\": \"test.jpg\"\n}"
+							"raw": "{\n    \"caption\": \"Hello\",\n    \"url\": \"food.jpg\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/v0/feed",
@@ -563,6 +537,267 @@
 								"api",
 								"v0",
 								"feed"
+							]
+						},
+						"description": "Post a new item to the feed"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v0/feed/:id authorized update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"The post returns a new item with an id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id).to.not.eql(null);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"caption\": \"Hello Updated\",\n    \"url\": \"food.jpg\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v0/feed/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"feed",
+								"4"
+							]
+						},
+						"description": "Post a new item to the feed"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v0/signed-url",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"The post returns a new item with an id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id).to.not.eql(null);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v0/feed/signed-url/food.jpg",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"feed",
+								"signed-url",
+								"food.jpg"
+							]
+						},
+						"description": "Post a new item to the feed"
+					},
+					"response": []
+				},
+				{
+					"name": "filter image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"The post returns a new item with an id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id).to.not.eql(null);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/api/v0/feed/filterimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v0",
+								"feed",
+								"filterimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
+						},
+						"description": "Post a new item to the feed"
+					},
+					"response": []
+				},
+				{
+					"name": "upload file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"The post returns a new item with an id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.id).to.not.eql(null);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "image/jpeg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/Users/wisdomekeh/Downloads/1ff7ee63eb923402a812.jpg"
+							}
+						},
+						"url": {
+							"raw": "https://udacity-project-2072086.s3.amazonaws.com/test.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATP3AGZRZD67WP3QT%2F20220928%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220928T223741Z&X-Amz-Expires=300&X-Amz-Signature=08d757288f4094b891a7351e855c2d3f1bef396274c5e7b284a3b4b4b7ef9b81&X-Amz-SignedHeaders=host",
+							"protocol": "https",
+							"host": [
+								"udacity-project-2072086",
+								"s3",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"test.jpg"
+							],
+							"query": [
+								{
+									"key": "X-Amz-Algorithm",
+									"value": "AWS4-HMAC-SHA256"
+								},
+								{
+									"key": "X-Amz-Credential",
+									"value": "AKIATP3AGZRZD67WP3QT%2F20220928%2Fus-east-1%2Fs3%2Faws4_request"
+								},
+								{
+									"key": "X-Amz-Date",
+									"value": "20220928T223741Z"
+								},
+								{
+									"key": "X-Amz-Expires",
+									"value": "300"
+								},
+								{
+									"key": "X-Amz-Signature",
+									"value": "08d757288f4094b891a7351e855c2d3f1bef396274c5e7b284a3b4b4b7ef9b81"
+								},
+								{
+									"key": "X-Amz-SignedHeaders",
+									"value": "host"
+								}
 							]
 						},
 						"description": "Post a new item to the feed"
@@ -584,7 +819,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "65e7c108-0985-4ca7-9613-0898f005cf76",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -594,7 +828,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cf28f76e-ffbb-4199-b636-1c080a86e465",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -608,7 +841,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "bc5d9c7a-7a6b-49ed-af16-206e17e8732f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -618,7 +850,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a7cb0174-2461-42e2-979e-1b5922eea0fe",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -628,10 +859,15 @@
 	],
 	"variable": [
 		{
-			"id": "3e3ea131-5328-4f50-8fe1-516e3995917d",
 			"key": "host",
 			"value": "http://localhost:8080",
 			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }

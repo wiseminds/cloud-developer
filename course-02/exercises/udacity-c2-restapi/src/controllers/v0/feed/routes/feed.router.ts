@@ -1,9 +1,34 @@
 import { Router, Request, Response } from "express";
 import { FeedItem } from "../models/FeedItem";
 import { requireAuth } from "../../users/routes/auth.router";
+import { config } from "../../../../config/config";
 import * as AWS from "../../../../aws";
+import axios from "axios";
+// import { config } from 'aws-sdk';
 
 const router: Router = Router();
+
+// Filter an image
+router.get("/filterimage", requireAuth, async (req: Request, res: Response) => {
+  let { image_url } = req.query;
+  //   console.log(config.dev);
+  if (!config.dev.image_filer_link) {
+    res.status(400).json({ message: "Image filter not available" });
+    return;
+  }
+
+  try {
+    const response = await axios({
+      method: "get",
+      baseURL:  config.dev.image_filer_link,
+      url: `/filteredimage?image_url=${image_url}`,
+      responseType: "arraybuffer",
+    }); 
+    res.status(200).send(response.data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 
 // Get all feed items
 router.get("/", async (req: Request, res: Response) => {
@@ -18,11 +43,12 @@ router.get("/", async (req: Request, res: Response) => {
 
 //@TODO
 //Add an endpoint to GET a specific resource by Primary Key
-router.get("/:id", requireAuth, async (req: Request, res: Response) => {
-  const { id } = req.params;
+router.get("/:id", async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
 
   if (!id) {
     res.status(422).json({ message: "Please pass in a valid ID" });
+    return;
   }
   const data = await FeedItem.findByPk(id);
 
@@ -31,22 +57,20 @@ router.get("/:id", requireAuth, async (req: Request, res: Response) => {
 
 // update a specific resource
 router.patch("/:id", requireAuth, async (req: Request, res: Response) => {
-  //@TODO try it yourself
-  const { id } = req.params;
-  const body = req.body
-
-
+  const id = parseInt(req.params.id);
+  const body = req.body;
 
   if (!id) {
     res.status(422).json({ message: "Please pass in a valid ID" });
+    return;
   }
 
   const data = await await FeedItem.findByPk(id);
 
-  if(body.url) data.url = body.url
-  if(body.caption) data.caption = body.caption
+  if (body.url) data.url = body.url;
+  if (body.caption) data.caption = body.caption;
 
-  await data.save()
+  await data.save();
   res.status(200).send(data);
 });
 
@@ -80,12 +104,12 @@ router.post("/", requireAuth, async (req: Request, res: Response) => {
     return res.status(400).send({ message: "File url is required" });
   }
 
-  const saved_item = await   FeedItem.create({
+  const saved_item = await FeedItem.create({
     caption: caption,
-    url: fileName, 
+    url: fileName,
   });
 
-//   const saved_item = await item.save();
+  //   const saved_item = await item.save();
 
   saved_item.url = AWS.getGetSignedUrl(saved_item.url);
   res.status(201).send(saved_item);
