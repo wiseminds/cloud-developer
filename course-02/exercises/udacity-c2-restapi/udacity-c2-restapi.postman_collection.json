@@ -80,7 +80,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v0/feed/:id",
+							"raw": "{{host}}/api/v0/feed/4",
 							"host": [
 								"{{host}}"
 							],
@@ -88,19 +88,13 @@
 								"api",
 								"v0",
 								"feed",
-								":id"
+								"4"
 							],
 							"query": [
 								{
 									"key": "id",
 									"value": "4",
 									"disabled": true
-								}
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "3"
 								}
 							]
 						},
@@ -532,7 +526,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"caption\": \"Hello\",\n    \"url\": \"test.jpg\"\n}"
+							"raw": "{\n    \"caption\": \"Hello\",\n    \"url\": \"food.jpg\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/v0/feed",
@@ -574,7 +568,7 @@
 						}
 					],
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -585,7 +579,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"caption\": \"Hello\",\n    \"url\": \"food.jpg\"\n}"
+							"raw": "{\n    \"caption\": \"Hello Updated\",\n    \"url\": \"food.jpg\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/v0/feed/4",
@@ -645,7 +639,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/feed/signed-url/food.jsp",
+							"raw": "{{host}}/api/v0/feed/signed-url/food.jpg",
 							"host": [
 								"{{host}}"
 							],
@@ -654,7 +648,7 @@
 								"v0",
 								"feed",
 								"signed-url",
-								"food.jsp"
+								"food.jpg"
 							]
 						},
 						"description": "Post a new item to the feed"
@@ -768,7 +762,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://udacity-project-2072086.s3.amazonaws.com/food.jsp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATP3AGZRZD67WP3QT%2F20220928%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220928T223127Z&X-Amz-Expires=300&X-Amz-Signature=4204452367487e92d325f53930fb65afdd0cb3df8ae42e2d948260b937021b08&X-Amz-SignedHeaders=host",
+							"raw": "https://udacity-project-2072086.s3.amazonaws.com/test.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATP3AGZRZD67WP3QT%2F20220928%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220928T223741Z&X-Amz-Expires=300&X-Amz-Signature=08d757288f4094b891a7351e855c2d3f1bef396274c5e7b284a3b4b4b7ef9b81&X-Amz-SignedHeaders=host",
 							"protocol": "https",
 							"host": [
 								"udacity-project-2072086",
@@ -777,7 +771,7 @@
 								"com"
 							],
 							"path": [
-								"food.jsp"
+								"test.jpg"
 							],
 							"query": [
 								{
@@ -790,7 +784,7 @@
 								},
 								{
 									"key": "X-Amz-Date",
-									"value": "20220928T223127Z"
+									"value": "20220928T223741Z"
 								},
 								{
 									"key": "X-Amz-Expires",
@@ -798,7 +792,7 @@
 								},
 								{
 									"key": "X-Amz-Signature",
-									"value": "4204452367487e92d325f53930fb65afdd0cb3df8ae42e2d948260b937021b08"
+									"value": "08d757288f4094b891a7351e855c2d3f1bef396274c5e7b284a3b4b4b7ef9b81"
 								},
 								{
 									"key": "X-Amz-SignedHeaders",
