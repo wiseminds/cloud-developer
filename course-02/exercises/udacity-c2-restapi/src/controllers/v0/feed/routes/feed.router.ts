@@ -23,9 +23,7 @@ router.get("/filterimage", requireAuth, async (req: Request, res: Response) => {
       baseURL:  config.dev.image_filer_link,
       url: `/filteredimage?image_url=${image_url}`,
       responseType: "arraybuffer",
-    });
-    // console.log(data);
-
+    }); 
     res.status(200).send(response.data);
   } catch (error) {
     res.status(500).send(error);
